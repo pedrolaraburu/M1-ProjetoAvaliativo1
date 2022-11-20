@@ -120,7 +120,6 @@ function renderCards(arrayCards = cards) {
                 text: "Editando o card!",
                 button: true,
               });
-              filtraTotal();
               idCardEdit = parseInt(divIcone.parentElement.children[1].innerHTML);
               formulario.querySelector('button[type="submit"]').textContent = "Salvar";
               document.getElementById('form_titulo').value = divIcone.parentElement.children[0].innerHTML
@@ -144,8 +143,7 @@ function renderCards(arrayCards = cards) {
                     case "sim":
                         idCardDelete = parseInt(divIcone.parentElement.children[1].innerHTML);
                         removeElementoArray(idCardDelete);
-                        console.log(cards);
-                        loadData()
+                        loadDataNoCategory()
                         swal({
                             title: "Deletado!",
                             text: "Card deletado com sucesso",
@@ -216,7 +214,7 @@ function addCards(evento) {
         formulario.querySelector('button[type="submit"]').textContent = "Enviar";
         console.log(cards);
         editando = false;
-        loadData();
+        loadDataNoCategory()
     } else {
         const card = {
             id: cards.length+1,
@@ -228,7 +226,6 @@ function addCards(evento) {
         };
         cards.push(card);
         filtraId();
-        console.log(cards);
         saveToLocalStorage(cards);
         renderCards(cards);
         renderTotal();
@@ -255,7 +252,7 @@ const getCardsFromLocalStorage = () => {
 
 
 function filtrarPorCategoria(id) {
-    if (id == 0) loadData()
+    if (id == 0) loadDataNoCategory()
     else {
         const listaFiltrada = filtrarCards(id);
         renderCards(listaFiltrada);
@@ -326,6 +323,11 @@ function loadData() {
     renderCards(cards);
 }
 
+function loadDataNoCategory(){
+    renderTotal();
+    renderCards(cards);
+}
+
 
 function filtraTitulo(e){
     e.preventDefault();
@@ -349,5 +351,5 @@ busca_titulo.addEventListener('submit', filtraTitulo);
 
 
 const busca_limpar = document.getElementById('busca_limpar');
-busca_limpar.addEventListener('click', loadData);
+busca_limpar.addEventListener('click', loadDataNoCategory);
 
