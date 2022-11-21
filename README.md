@@ -2,4 +2,4 @@
 
 
 ## Erros:
-- Formuário de cadastro de dica não extende quando há muitos cards cadastrados.
+- Formuário de cadastro de card não extende quando há muitos cards cadastrados.
