@@ -22,19 +22,19 @@
         <section>
             <form class="form" id="form-cadastro">
                 <label id="form-titulo-label">Título</label>
-                <input type="text" id="form_titulo" placeholder=" Digite um título" required>
+                <input type="text" id="form_titulo" minlength="8" maxlength="64" placeholder=" Digite um título" required>
                 <label id="form-skill-label">Linguagem/Skill</label>
-                <input type="text" id="form_skill" placeholder=" Digite uma linguagem ou skill" required>
+                <input type="text" id="form_skill" minlength="2" maxlength="16" placeholder=" Digite uma linguagem ou skill" required>
                 <label id="category-label">Categoria</label>
                 <select class="select" id="category" required>
                     <option disabled>Selecione uma categoria</option>
                 </select>
 
                 <label id="descricao-label">Descrição</label>
-                <textarea class="descricao" id="description" placeholder=" Escreva aqui o detalhamento da sua dica..." required></textarea>
+                <textarea class="descricao" id="description" minlength="16" maxlength="512" placeholder=" Escreva aqui o detalhamento da sua dica..." required></textarea>
 
                 <label class="youtube-label">Vídeo do Youtube</label>
-                <input type="url" class="form-youtube" id="form_youtube" placeholder=" url do vídeo do youtube" required>
+                <input type="url" class="form-youtube" id="form_youtube" placeholder=" url do vídeo do youtube">
 
                 <div class="form-actions">
                     <button class="button-limpar" type="reset">Limpar</button>
